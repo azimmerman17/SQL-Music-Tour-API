@@ -23,22 +23,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
     },
+    available_start_time: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    end_time: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
     genre: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    available_start_time: {
-        type: DataTypes.DATE,
-        allowNull: false
-    },
-    end_time: {
-        type: DataTypes.DATE,
-        allowNull: false
-    }
   }, {
     sequelize,
     modelName: 'Band',
-    tableName: 'bands',
+    tableName: 'band',
     timestamps: false
   })
   return Band;
