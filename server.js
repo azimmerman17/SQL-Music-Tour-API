@@ -17,7 +17,11 @@ app.get('/', (req, res) => {
 
 // // CONTROLLERS 
 const bandsController = require('./controllers/bands_controllers')
+const eventsController = require('./controllers/events_controllers')
+const stagesController = require('./controllers/stages_controllers')
 app.use('/bands', bandsController)
+app.use('/events', eventsController)
+app.use('/stages', stagesController)
 
 
 // LISTEN

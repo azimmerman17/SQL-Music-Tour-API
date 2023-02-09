@@ -26,7 +26,7 @@ bands.get('/', async (req, res) => {
 bands.get('/:name', async (req, res) => {
   try {
       const foundBand = await Band.findOne({
-          where: { band_id: req.params.name },
+          where: { name: req.params.name },
           include: [{ 
             model: Meet_greet, 
             as: 'meet_greets',
@@ -37,10 +37,10 @@ bands.get('/:name', async (req, res) => {
             }
           },
           {
-            module: Set_time,
+            model: Set_time,
             as: 'set_times',
             include: {
-              module: Event,
+              model: Event,
               as: 'event', 
               where: { name: { [Op.like]: `%${req.query.event ? req.query.event : ''}` } }
             }
@@ -97,9 +97,5 @@ bands.delete('/:id', async (req, res) => {
       res.status(500).json(err)
   }
 })
-
-
-
-
 
 module.exports = bands
